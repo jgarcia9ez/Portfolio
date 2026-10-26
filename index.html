@@ -416,7 +416,84 @@
             .nav-brand { display: none; }
             .skills-grid { grid-template-columns: 1fr; }
         }
-    </style>
+    
+        /* True WebGL scene for the separate Personal Paradigm destination. */
+        .paradigm-overlay{padding:0;background:rgba(1,5,14,.97);backdrop-filter:blur(18px)}
+        .paradigm-window{width:100%;height:100%;max-width:none;max-height:100vh;overflow-y:auto;border:0;border-radius:0;background:radial-gradient(ellipse at 50% 44%,rgba(8,145,178,.13),transparent 45%),linear-gradient(160deg,#030817,#02040b 72%);box-shadow:none}
+        .paradigm-head{position:relative;z-index:10;padding:18px clamp(16px,4vw,56px);background:linear-gradient(180deg,rgba(2,8,23,.96),rgba(2,8,23,.68));border-bottom:1px solid rgba(34,211,238,.15)}
+        .paradigm-stage.paradigm-real3d{width:100%;max-width:none;height:min(66vh,720px);min-height:430px;margin:0;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 50%,rgba(8,145,178,.12),transparent 58%);touch-action:pan-y}
+        #paradigm-3d-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;outline:none}
+        .paradigm-hud{position:absolute;top:16px;left:clamp(14px,3vw,40px);right:clamp(14px,3vw,40px);display:flex;justify-content:space-between;gap:10px;pointer-events:none;color:#67e8f9;font:600 .6rem 'JetBrains Mono',monospace;letter-spacing:.13em;text-shadow:0 0 12px rgba(34,211,238,.6)}
+        .paradigm-hud i{font-size:.45rem;margin-right:6px;animation:paradigmHudPulse 1.4s infinite}
+        @keyframes paradigmHudPulse{50%{opacity:.25}}
+        .paradigm-3d-labels{position:absolute;inset:0;pointer-events:none}
+        .paradigm-3d-labels .paradigm-node{pointer-events:auto;width:clamp(115px,13vw,164px);min-height:62px;padding:10px 11px;font-size:clamp(.59rem,.8vw,.72rem);background:linear-gradient(145deg,rgba(5,26,44,.94),rgba(2,8,21,.96));backdrop-filter:blur(10px);transform:translate(-50%,-50%);}
+        .paradigm-3d-labels .paradigm-node:hover,.paradigm-3d-labels .paradigm-node.active{transform:translate(-50%,-50%) scale(1.05)}
+        .paradigm-3d-help{position:absolute;bottom:12px;left:0;right:0;text-align:center;pointer-events:none;color:#6d9ab0;font:500 .58rem 'JetBrains Mono',monospace;letter-spacing:.09em;text-shadow:0 0 10px #082f49}
+        .paradigm-detail{margin:8px clamp(14px,4vw,56px) 12px;background:linear-gradient(110deg,rgba(8,47,73,.42),rgba(3,7,18,.88));border-color:rgba(34,211,238,.25)}
+        .paradigm-tip{padding-bottom:16px}
+        @media(max-width:700px){.paradigm-head{padding:14px 16px}.paradigm-head p{max-width:260px;font-size:.7rem}.paradigm-stage.paradigm-real3d{height:58vh;min-height:430px}.paradigm-3d-labels .paradigm-node{width:104px;min-height:55px;padding:7px 5px;font-size:.56rem}.paradigm-3d-labels .node-number{font-size:.49rem}.paradigm-hud{font-size:.47rem;letter-spacing:.05em;top:10px}.paradigm-3d-help{font-size:.49rem;bottom:7px}.paradigm-detail{margin:6px 12px 10px;padding:14px}}
+
+
+/* PREMIUM PRESENTATION OVERRIDES */
+:root { --paradigm-cyan:#67e8f9; --paradigm-violet:#a78bfa; }
+.paradigm-launch-wrap { margin-top:34px!important; padding:28px 0 10px!important; border-top:1px solid rgba(148,163,184,.18)!important; }
+.paradigm-launch { min-height:94px!important; padding:22px 26px!important; border-radius:22px!important; border:1px solid rgba(103,232,249,.48)!important; background:radial-gradient(ellipse at 5% 0%,rgba(34,211,238,.18),transparent 48%),linear-gradient(120deg,#071a2b 0%,#11152d 52%,#1d1238 100%)!important; box-shadow:0 18px 55px rgba(2,6,23,.34),inset 0 1px 0 rgba(255,255,255,.08)!important; transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease!important; }
+.paradigm-launch:before { content:"";position:absolute;inset:-1px;z-index:-1;border-radius:inherit;background:linear-gradient(110deg,transparent 15%,rgba(103,232,249,.22),rgba(167,139,250,.18),transparent 78%);opacity:.5; }
+.paradigm-launch:hover { transform:translateY(-4px) scale(1.006)!important; border-color:rgba(103,232,249,.9)!important;box-shadow:0 24px 65px rgba(8,145,178,.18),0 12px 45px rgba(124,58,237,.15)!important; }
+.paradigm-launch-icon { width:52px!important;height:52px!important;border-radius:16px!important;background:linear-gradient(135deg,rgba(34,211,238,.2),rgba(139,92,246,.22))!important;border:1px solid rgba(103,232,249,.28)!important;box-shadow:0 0 26px rgba(34,211,238,.12)!important; }
+.paradigm-launch-title { font-size:1.12rem!important;letter-spacing:.01em; }
+.paradigm-launch-sub { color:#b8c6dc!important; }
+.paradigm-launch-cta { padding:12px 16px!important;border-radius:13px!important;background:linear-gradient(135deg,#67e8f9,#a5f3fc)!important;color:#082032!important;font-weight:800!important;box-shadow:0 8px 24px rgba(34,211,238,.2)!important; }
+.paradigm-overlay { padding:clamp(10px,2.5vw,30px)!important;background:radial-gradient(ellipse at 18% 12%,rgba(14,165,233,.14),transparent 42%),radial-gradient(ellipse at 85% 88%,rgba(139,92,246,.14),transparent 42%),rgba(2,6,23,.94)!important; }
+.paradigm-window { width:min(1440px,100%)!important;height:min(920px,96vh)!important;border-radius:28px!important;border:1px solid rgba(125,211,252,.26)!important;background:linear-gradient(145deg,rgba(8,15,32,.98),rgba(10,18,39,.97) 55%,rgba(20,13,42,.98))!important;box-shadow:0 35px 120px rgba(0,0,0,.62),inset 0 1px 0 rgba(255,255,255,.06)!important; }
+.paradigm-head { padding:28px 32px!important;border-bottom:1px solid rgba(148,163,184,.13)!important;background:linear-gradient(100deg,rgba(8,47,73,.34),rgba(30,27,75,.18),transparent)!important; }
+.paradigm-kicker { color:#67e8f9!important;letter-spacing:.18em!important;font-weight:800!important; }
+#paradigm-heading { font-size:clamp(1.65rem,3vw,2.5rem)!important;letter-spacing:-.04em!important; }
+.paradigm-head p { color:#a9b8d0!important; }
+.paradigm-close { width:46px!important;height:46px!important;border-radius:15px!important;background:rgba(148,163,184,.08)!important;border:1px solid rgba(148,163,184,.2)!important;transition:all .2s!important; }
+.paradigm-close:hover { background:rgba(248,113,113,.15)!important;border-color:rgba(248,113,113,.5)!important;transform:rotate(90deg); }
+.paradigm-body { gap:20px!important; }
+.paradigm-canvas-wrap,.paradigm-info-panel { border-radius:22px!important;border:1px solid rgba(148,163,184,.16)!important;background:linear-gradient(145deg,rgba(15,23,42,.76),rgba(8,15,32,.84))!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important; }
+.paradigm-info-panel { padding:24px!important; }
+.paradigm-node-button { border-radius:14px!important;transition:all .2s!important; }
+.paradigm-node-button:hover { transform:translateY(-2px); }
+.paradigm-node-button.active { box-shadow:0 0 0 1px rgba(103,232,249,.28),0 10px 30px rgba(34,211,238,.1)!important; }
+.paradigm-footer { border-top:1px solid rgba(148,163,184,.12)!important;color:#94a3b8!important; }
+@media(max-width:700px){.paradigm-head{padding:20px!important}.paradigm-window{height:97vh!important;border-radius:18px!important}.paradigm-launch{align-items:flex-start!important;flex-direction:column!important}.paradigm-launch-cta{align-self:stretch;justify-content:center}}
+/* Resume CV showcase */
+.cv-showcase { position:relative; margin:34px 0 8px; padding:clamp(20px,3vw,34px); border-radius:26px; overflow:hidden; border:1px solid rgba(148,163,184,.18); background:radial-gradient(ellipse at 0% 0%,rgba(56,189,248,.12),transparent 48%),radial-gradient(ellipse at 100% 100%,rgba(167,139,250,.12),transparent 45%),linear-gradient(135deg,rgba(10,19,38,.98),rgba(17,24,45,.98)); box-shadow:0 20px 50px rgba(0,0,0,.2); }
+.cv-showcase:before { content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,#67e8f9,#a78bfa,transparent); }
+.cv-showcase-head { display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:24px; }
+.cv-eyebrow { color:#67e8f9;text-transform:uppercase;font-size:.72rem;letter-spacing:.2em;font-weight:800;margin-bottom:9px; }
+.cv-showcase-title { color:#f8fafc;font-size:clamp(1.45rem,3vw,2.1rem);letter-spacing:-.04em;margin:0 0 8px;font-weight:800; }
+.cv-showcase-copy { color:#9eacc3;max-width:600px;line-height:1.65;margin:0;font-size:.93rem; }
+.cv-cards { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px; }
+.cv-card { position:relative;display:flex;flex-direction:column;min-height:230px;padding:23px;border-radius:21px;border:1px solid rgba(148,163,184,.17);background:linear-gradient(145deg,rgba(30,41,59,.7),rgba(15,23,42,.82));transition:transform .25s,border-color .25s,box-shadow .25s; }
+.cv-card:hover { transform:translateY(-5px);border-color:rgba(103,232,249,.48);box-shadow:0 20px 40px rgba(2,6,23,.3),0 0 35px rgba(34,211,238,.055); }
+.cv-card-top { display:flex;align-items:center;gap:14px;margin-bottom:18px; }
+.cv-file-icon { width:54px;height:60px;display:grid;place-items:center;flex-shrink:0;border-radius:14px;color:#f8fafc;font-size:1.35rem;background:linear-gradient(145deg,rgba(34,211,238,.22),rgba(99,102,241,.2));border:1px solid rgba(103,232,249,.22); }
+.cv-card:nth-child(2) .cv-file-icon { background:linear-gradient(145deg,rgba(167,139,250,.23),rgba(244,114,182,.16));border-color:rgba(196,181,253,.24); }
+.cv-card h4 { color:#f8fafc;font-size:1.05rem;margin:0 0 5px;font-weight:800; }
+.cv-card .cv-format { color:#8fa1bb;font-size:.78rem;letter-spacing:.04em; }
+.cv-card p { color:#aab7ca;font-size:.88rem;line-height:1.65;margin:0 0 22px;flex:1; }
+.cv-actions { display:flex;gap:10px;flex-wrap:wrap; }
+.cv-btn { display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 16px;min-height:44px;border-radius:12px;text-decoration:none!important;font-size:.84rem;font-weight:800;border:1px solid transparent;cursor:pointer;transition:transform .2s,filter .2s,box-shadow .2s; }
+.cv-btn:hover { transform:translateY(-2px);filter:brightness(1.08); }
+.cv-btn-primary { color:#071827!important;background:linear-gradient(135deg,#67e8f9,#a5f3fc);box-shadow:0 8px 22px rgba(34,211,238,.15); }
+.cv-btn-secondary { color:#e2e8f0!important;background:rgba(148,163,184,.08);border-color:rgba(148,163,184,.22); }
+.cv-modal { position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,23,.88);backdrop-filter:blur(16px);opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s; }
+.cv-modal.active { opacity:1;visibility:visible; }
+.cv-modal-panel { width:min(1100px,100%);height:min(92vh,900px);display:flex;flex-direction:column;overflow:hidden;border-radius:22px;border:1px solid rgba(103,232,249,.28);background:#0b1222;box-shadow:0 35px 100px rgba(0,0,0,.55);transform:translateY(12px) scale(.99);transition:transform .25s; }
+.cv-modal.active .cv-modal-panel { transform:translateY(0) scale(1); }
+.cv-modal-head { display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 20px;border-bottom:1px solid rgba(148,163,184,.16);background:linear-gradient(100deg,rgba(8,47,73,.38),rgba(30,27,75,.2)); }
+.cv-modal-head h3 { color:#f8fafc;margin:0;font-size:1rem; }
+.cv-modal-tools { display:flex;align-items:center;gap:8px;flex-wrap:wrap; }
+.cv-modal-close { width:40px;height:40px;border-radius:12px;border:1px solid rgba(148,163,184,.2);background:rgba(148,163,184,.08);color:#e2e8f0;cursor:pointer;font-size:1.1rem; }
+.cv-frame { border:0;width:100%;height:100%;background:#e2e8f0; }
+@media(max-width:650px){.cv-cards{grid-template-columns:1fr}.cv-showcase-head{align-items:flex-start;flex-direction:column}.cv-card{min-height:unset}.cv-modal{padding:7px}.cv-modal-panel{height:96vh;border-radius:14px}.cv-modal-head{padding:12px}.cv-modal-tools .cv-btn{padding:9px 10px;font-size:.78rem}}
+
+</style>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -468,12 +545,28 @@
     </aside>
 
 
+
+    <section class="cv-modal" id="cv-modal" role="dialog" aria-modal="true" aria-labelledby="cv-modal-title" onclick="if(event.target===this)closeCVPreview()">
+        <div class="cv-modal-panel">
+            <header class="cv-modal-head">
+                <h3 id="cv-modal-title"><i class="fa-solid fa-file-pdf"></i> CV Preview</h3>
+                <div class="cv-modal-tools">
+                    <a class="cv-btn cv-btn-secondary" id="cv-modal-download" href="Javi_Garcia_CV.pdf" download><i class="fa-solid fa-download"></i> Download</a>
+                    <button class="cv-modal-close" type="button" onclick="closeCVPreview()" aria-label="Close CV preview"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </header>
+            <iframe class="cv-frame" id="cv-frame" title="CV PDF preview" src="about:blank"></iframe>
+        </div>
+    </section>
+
     <section class="paradigm-overlay" id="paradigm-overlay" role="dialog" aria-modal="true" aria-labelledby="paradigm-heading" onclick="if(event.target===this)closeParadigmMap()">
         <div class="paradigm-window">
             <header class="paradigm-head"><div><div class="paradigm-kicker">Personal operating system / 08 principles</div><h2 id="paradigm-heading">Personal Paradigm Map</h2><p>Choose a node to channel the core energy into that belief.</p></div><button class="paradigm-close" type="button" onclick="closeParadigmMap()" aria-label="Close map"><i class="fa-solid fa-xmark"></i></button></header>
-            <div class="paradigm-stage" id="paradigm-stage">
-                <svg class="paradigm-svg" id="paradigm-svg" viewBox="0 0 900 560" aria-hidden="true"></svg>
-                <div class="paradigm-core"><i class="fa-solid fa-microchip"></i><strong>PERSONAL<br>PARADIGM MAP</strong><small>CORE SYSTEM // ACTIVE</small></div>
+            <div class="paradigm-stage paradigm-real3d" id="paradigm-stage">
+                <canvas id="paradigm-3d-canvas" aria-label="Interactive 3D Personal Paradigm Map"></canvas>
+                <div class="paradigm-hud"><span><i class="fa-solid fa-circle"></i> ENERGY NETWORK ONLINE</span><span>3D SPACE / CORE 08</span></div>
+                <div id="paradigm-3d-labels" class="paradigm-3d-labels"></div>
+                <div class="paradigm-3d-help">DRAG TO ORBIT&nbsp; · &nbsp;SCROLL TO ZOOM&nbsp; · &nbsp;SELECT A NODE</div>
             </div>
             <div class="paradigm-detail" aria-live="polite"><div class="paradigm-detail-label" id="paradigm-detail-label">CORE BELIEF // 01</div><h3 id="paradigm-detail-title">Present Focused, Future Driven</h3><p id="paradigm-detail-text">Fully living and enjoying the present moment while ensuring daily actions build a strong foundation for long-term goals.</p></div>
             <div class="paradigm-tip"><i class="fa-solid fa-bolt"></i> Select any belief node to activate its energy pathway.</div>
@@ -482,7 +575,7 @@
 
     <script>
 
-        // Personal Paradigm Map: independent overlay, SVG chip branches, and animated energy paths.
+        // Personal Paradigm Map: real 3D WebGL scene, isolated from the portfolio tower.
         const PARADIGM_BELIEFS = [
             {title:"Present Focused, Future Driven", text:"Fully living and enjoying the present moment while ensuring daily actions build a strong foundation for long-term goals."},
             {title:"Learning from Mistakes", text:"Treating every error or setback not as a limitation, but as direct feedback to adjust course, gain maturity, and move forward with clarity."},
@@ -493,43 +586,63 @@
             {title:"Loyalty & Integrity", text:"Staying committed to core values and the people around me, bringing trust, consistency, and dependable support to every relationship and project."},
             {title:"Adaptability & Calm", text:"Keeping a cool head in unexpected situations, adjusting course with flexibility while maintaining composure and momentum."}
         ];
-        let activeParadigmNode = 0;
-        function buildParadigmMap() {
-            const svg = document.getElementById('paradigm-svg');
-            const stage = document.getElementById('paradigm-stage');
-            if (!svg || svg.dataset.built === 'true') return;
-            svg.dataset.built = 'true';
-            const cx=450, cy=274, rx=340, ry=220;
+        let activeParadigmNode=0, p3dScene=null, p3dCamera=null, p3dRenderer=null, p3dControls=null, p3dClock=null, p3dRAF=0, p3dRunning=false, p3dCore=null, p3dNodes=[], p3dBranches=[], p3dPulses=[], p3dRings=[];
+        const p3dRaycaster = new THREE.Raycaster(), p3dPointer = new THREE.Vector2();
+        function buildParadigmMap(){
+            const labels=document.getElementById('paradigm-3d-labels');
+            if(!labels || labels.dataset.built==='true') return;
+            labels.dataset.built='true';
             PARADIGM_BELIEFS.forEach((belief,i)=>{
-                const angle=(-90+i*45)*Math.PI/180;
-                const x=cx+Math.cos(angle)*rx, y=cy+Math.sin(angle)*ry;
-                const elbowX=cx+Math.cos(angle)*145, elbowY=cy+Math.sin(angle)*125;
-                const midX=cx+Math.cos(angle)*215, midY=cy+Math.sin(angle)*178;
-                const sideX=midX+Math.cos(angle+Math.PI/2)*18, sideY=midY+Math.sin(angle+Math.PI/2)*18;
-                const path=`M ${cx} ${cy} L ${elbowX} ${elbowY} L ${sideX} ${sideY} L ${midX} ${midY} L ${x} ${y}`;
-                const ns='http://www.w3.org/2000/svg';
-                const wire=document.createElementNS(ns,'path'); wire.setAttribute('d',path);wire.setAttribute('class','paradigm-wire');wire.dataset.branch=i;svg.appendChild(wire);
-                const underlay=document.createElementNS(ns,'path');underlay.setAttribute('d',path);underlay.setAttribute('class','paradigm-underlay');underlay.dataset.branch=i;svg.appendChild(underlay);
-                const energy=document.createElementNS(ns,'path');energy.setAttribute('d',path);energy.setAttribute('class','paradigm-energy');energy.dataset.branch=i;svg.appendChild(energy);
-                const dot=document.createElementNS(ns,'circle');dot.setAttribute('cx',x);dot.setAttribute('cy',y);dot.setAttribute('r','5');dot.setAttribute('fill','#67e8f9');dot.setAttribute('filter','drop-shadow(0 0 5px #22d3ee)');dot.dataset.branch=i;svg.appendChild(dot);
-                const node=document.createElement('button');node.type='button';node.className='paradigm-node';node.dataset.index=i;node.style.left=(x/900*100)+'%';node.style.top=(y/560*100)+'%';node.innerHTML=`<span class="node-number">BELIEF // 0${i+1}</span>${belief.title}`;node.setAttribute('aria-label',belief.title);node.addEventListener('click',()=>selectParadigmBelief(i));stage.appendChild(node);
+                const node=document.createElement('button');node.type='button';node.className='paradigm-node';node.dataset.index=i;
+                node.innerHTML=`<span class="node-number"></span>${belief.title}`;
+                node.setAttribute('aria-label',belief.title);node.addEventListener('click',()=>selectParadigmBelief(i));labels.appendChild(node);
             });
-            selectParadigmBelief(0);
         }
-        function selectParadigmBelief(index) {
-            activeParadigmNode=index; const belief=PARADIGM_BELIEFS[index]; if(!belief)return;
-            document.querySelectorAll('.paradigm-node').forEach((n,i)=>{n.classList.toggle('active',i===index);n.setAttribute('aria-pressed',i===index?'true':'false')});
-            document.querySelectorAll('.paradigm-wire,.paradigm-energy').forEach(path=>path.classList.toggle('active',Number(path.dataset.branch)===index));
-            document.querySelectorAll('.paradigm-svg circle').forEach(dot=>{const active=Number(dot.dataset.branch)===index;dot.setAttribute('r',active?'8':'5');dot.setAttribute('fill',active?'#ffffff':'#67e8f9')});
-            document.getElementById('paradigm-detail-label').textContent=`CORE BELIEF // 0${index+1}`;
-            document.getElementById('paradigm-detail-title').textContent=belief.title;
-            document.getElementById('paradigm-detail-text').textContent=belief.text;
+        function p3dMat(color,emissive,intensity=1){return new THREE.MeshStandardMaterial({color,emissive,emissiveIntensity:intensity,metalness:.82,roughness:.22});}
+        function p3dTube(points,radius,material){const curve=new THREE.CatmullRomCurve3(points);const mesh=new THREE.Mesh(new THREE.TubeGeometry(curve,90,radius,8,false),material);p3dScene.add(mesh);return {mesh,curve};}
+        function initParadigm3D(){
+            const stage=document.getElementById('paradigm-stage'),canvas=document.getElementById('paradigm-3d-canvas');
+            if(!stage||!canvas||p3dRenderer||!window.THREE)return;
+            p3dScene=new THREE.Scene();p3dScene.background=new THREE.Color(0x020611);p3dScene.fog=new THREE.FogExp2(0x020611,.012);
+            p3dCamera=new THREE.PerspectiveCamera(43,stage.clientWidth/stage.clientHeight,.1,160);p3dCamera.position.set(0,13,23);
+            p3dRenderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});p3dRenderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));p3dRenderer.setSize(stage.clientWidth,stage.clientHeight,false);p3dRenderer.shadowMap.enabled=true;p3dRenderer.shadowMap.type=THREE.PCFSoftShadowMap;p3dRenderer.toneMapping=THREE.ACESFilmicToneMapping;p3dRenderer.toneMappingExposure=1.3;
+            p3dControls=new THREE.OrbitControls(p3dCamera,canvas);p3dControls.enableDamping=true;p3dControls.dampingFactor=.055;p3dControls.enablePan=false;p3dControls.minDistance=10;p3dControls.maxDistance=34;p3dControls.maxPolarAngle=Math.PI*.49;p3dControls.target.set(0,1.4,0);p3dClock=new THREE.Clock();
+            p3dScene.add(new THREE.HemisphereLight(0x9beeff,0x02040c,1.6));
+            [[0x22d3ee,65,[0,8,2]],[0x2563eb,48,[-8,4,-6]],[0x67e8f9,32,[8,5,7]]].forEach(a=>{const l=new THREE.PointLight(a[0],a[1],40);l.position.set(...a[2]);p3dScene.add(l)});
+            const floor=new THREE.Mesh(new THREE.PlaneGeometry(100,100),new THREE.MeshStandardMaterial({color:0x050b16,metalness:.85,roughness:.32}));floor.rotation.x=-Math.PI/2;floor.position.y=-.65;floor.receiveShadow=true;p3dScene.add(floor);
+            const grid=new THREE.GridHelper(80,80,0x0e7490,0x10283b);grid.position.y=-.63;grid.material.transparent=true;grid.material.opacity=.45;p3dScene.add(grid);
+            const platform=new THREE.Mesh(new THREE.CylinderGeometry(5.4,5.8,.3,96),p3dMat(0x071a2d,0x06334b,1.3));platform.position.y=.03;platform.castShadow=true;p3dScene.add(platform);
+            [5.65,5.05,4.35,3.7].forEach((r,i)=>{const ring=new THREE.Mesh(new THREE.TorusGeometry(r,.025,8,144),new THREE.MeshBasicMaterial({color:i%2?0x0891b2:0x67e8f9,transparent:true,opacity:.8}));ring.rotation.x=Math.PI/2;ring.position.y=.24+i*.025;ring.userData.spin=i%2?-.2:.15;p3dScene.add(ring);p3dRings.push(ring)});
+            p3dCore=new THREE.Group();p3dCore.position.set(0,1.5,0);p3dScene.add(p3dCore);
+            function box(size,pos,mat){const m=new THREE.Mesh(new THREE.BoxGeometry(...size),mat);m.position.set(...pos);m.castShadow=true;p3dCore.add(m);return m;}
+            box([3.35,.42,3.35],[0,0,0],p3dMat(0x0b2940,0x075985,1.5));box([2.92,.16,2.92],[0,.3,0],new THREE.MeshPhysicalMaterial({color:0x071727,metalness:.75,roughness:.15,clearcoat:1,emissive:0x083344,emissiveIntensity:1}));box([2.02,.12,2.02],[0,.4,0],p3dMat(0x0e7490,0x22d3ee,2.2));box([1.12,.08,1.12],[0,.49,0],p3dMat(0x020b17,0x22d3ee,2.5));
+            const coreLight=new THREE.PointLight(0x22d3ee,25,12);coreLight.position.set(0,1.1,0);p3dCore.add(coreLight);
+            const pins=p3dMat(0x67e8f9,0x0891b2,2);for(let side=0;side<4;side++)for(let j=0;j<15;j++){const t=-1.3+j*.185;const pin=new THREE.Mesh(new THREE.BoxGeometry(side%2?.07:.22,.055,side%2?.22:.07),pins);pin.position.set(side===0?-1.53:side===1?1.53:t,.18,side===2?-1.53:side===3?1.53:t);p3dCore.add(pin)}
+            PARADIGM_BELIEFS.forEach((belief,i)=>{
+                const a=-Math.PI/2+i*Math.PI/4,x=Math.cos(a),z=Math.sin(a);const start=new THREE.Vector3(x*1.55,1.65,z*1.55),elbow=new THREE.Vector3(x*3.3,.95,z*3.3),bend=new THREE.Vector3(x*4.45,.13,z*4.45),end=new THREE.Vector3(x*7.3,1.05+.15*Math.sin(i),z*7.3);
+                const pts=[start,new THREE.Vector3(x*2.35,1.45,z*2.35),elbow,new THREE.Vector3(elbow.x,.13,elbow.z),bend,end];p3dTube(pts,.04,p3dMat(0x075985,0x0369a1,.9));
+                const energy=p3dTube(pts,.064,new THREE.MeshBasicMaterial({color:0x22d3ee,transparent:true,opacity:.62}));p3dBranches.push({...energy,index:i});
+                for(let k=0;k<4;k++){const pulse=new THREE.Mesh(new THREE.SphereGeometry(.075,12,12),new THREE.MeshBasicMaterial({color:0xcffafe}));p3dScene.add(pulse);p3dPulses.push({mesh:pulse,curve:energy.curve,offset:k/4,speed:.12+i*.003})}
+                const group=new THREE.Group();group.position.copy(end);group.userData.index=i;group.userData.phase=i*.8;
+                const halo=new THREE.Mesh(new THREE.SphereGeometry(.72,24,18),new THREE.MeshBasicMaterial({color:0x22d3ee,transparent:true,opacity:.13,wireframe:true}));group.add(halo);
+                const orb=new THREE.Mesh(new THREE.IcosahedronGeometry(.43,1),p3dMat(0x0e7490,0x075985,.9));orb.castShadow=true;group.add(orb);
+                const ring=new THREE.Mesh(new THREE.TorusGeometry(.62,.025,8,48),new THREE.MeshBasicMaterial({color:0x67e8f9}));ring.rotation.x=Math.PI/2;group.add(ring);p3dScene.add(group);p3dNodes.push({group,orb,halo,ring,base:end.clone()});
+            });
+            const pos=[];for(let i=0;i<900;i++)pos.push((Math.random()-.5)*75,Math.random()*24,(Math.random()-.5)*75);const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));p3dScene.add(new THREE.Points(geo,new THREE.PointsMaterial({color:0x67e8f9,size:.04,transparent:true,opacity:.75})));
+            canvas.addEventListener('pointerdown',p3dPickNode);window.addEventListener('resize',resizeParadigm3D);selectParadigmBelief(activeParadigmNode);resizeParadigm3D();
         }
-        function openParadigmMap() {
-            const overlay=document.getElementById('paradigm-overlay'); if(!overlay)return;
-            overlay.classList.add('active');document.body.style.overflow='hidden';buildParadigmMap();selectParadigmBelief(activeParadigmNode);
+        function p3dPickNode(event){if(!p3dRenderer)return;const r=p3dRenderer.domElement.getBoundingClientRect();p3dPointer.x=((event.clientX-r.left)/r.width)*2-1;p3dPointer.y=-((event.clientY-r.top)/r.height)*2+1;p3dRaycaster.setFromCamera(p3dPointer,p3dCamera);const hits=p3dRaycaster.intersectObjects(p3dNodes.flatMap(n=>[n.orb,n.halo,n.ring]),true);if(hits.length){let o=hits[0].object;while(o&&!Number.isInteger(o.userData.index))o=o.parent;if(o)selectParadigmBelief(o.userData.index)}}
+        function resizeParadigm3D(){if(!p3dRenderer||!p3dCamera)return;const s=document.getElementById('paradigm-stage');if(!s)return;const w=Math.max(1,s.clientWidth),h=Math.max(1,s.clientHeight);p3dCamera.aspect=w/h;p3dCamera.updateProjectionMatrix();p3dRenderer.setSize(w,h,false)}
+        function selectParadigmBelief(index){activeParadigmNode=index;const belief=PARADIGM_BELIEFS[index];if(!belief)return;
+            document.querySelectorAll('#paradigm-3d-labels .paradigm-node').forEach((n,i)=>{n.classList.toggle('active',i===index);n.setAttribute('aria-pressed',i===index?'true':'false')});
+            document.getElementById('paradigm-detail-label').textContent=`CORE BELIEF // 0${index+1}`;document.getElementById('paradigm-detail-title').textContent=belief.title;document.getElementById('paradigm-detail-text').textContent=belief.text;
+            p3dNodes.forEach((n,i)=>{const on=i===index;n.orb.material.emissive.setHex(on?0x22d3ee:0x075985);n.orb.material.emissiveIntensity=on?2.5:.9;n.halo.material.opacity=on?.42:.13;n.ring.material.color.setHex(on?0xffffff:0x67e8f9)});
+            p3dBranches.forEach(b=>{const on=b.index===index;b.mesh.material.color.setHex(on?0xffffff:0x22d3ee);b.mesh.material.opacity=on?1:.58});
         }
-        function closeParadigmMap() { const overlay=document.getElementById('paradigm-overlay');if(overlay)overlay.classList.remove('active');document.body.style.overflow=''; }
+        function p3dAnimate(){if(!p3dRunning||!p3dRenderer)return;p3dRAF=requestAnimationFrame(p3dAnimate);const t=p3dClock.getElapsedTime();if(p3dCore){p3dCore.position.y=1.5+Math.sin(t*1.25)*.1;p3dCore.rotation.y=Math.sin(t*.28)*.07}p3dNodes.forEach((n,i)=>{n.group.position.y=n.base.y+Math.sin(t*1.5+i)*.14;n.group.rotation.y=t*.5+i;n.group.scale.setScalar(i===activeParadigmNode?1.2+Math.sin(t*3)*.04:1+Math.sin(t*2+i)*.04)});p3dPulses.forEach(p=>{const u=(t*p.speed+p.offset)%1;p.mesh.position.copy(p.curve.getPoint(u));p.mesh.scale.setScalar(.8+Math.sin(t*8+p.offset*10)*.2)});p3dRings.forEach(r=>r.rotation.z+=r.userData.spin*.008);p3dControls.update();p3dRenderer.render(p3dScene,p3dCamera);updateParadigmLabels()}
+        function updateParadigmLabels(){if(!p3dCamera)return;const stage=document.getElementById('paradigm-stage'),labels=document.getElementById('paradigm-3d-labels');if(!stage||!labels)return;const w=stage.clientWidth,h=stage.clientHeight;p3dNodes.forEach((n,i)=>{const v=n.group.position.clone();v.y+=.85;v.project(p3dCamera);const x=(v.x*.5+.5)*w,y=(-v.y*.5+.5)*h,button=labels.children[i];if(!button)return;const visible=v.z>-1&&v.z<1&&x>-90&&x<w+90&&y>0&&y<h;button.style.display=visible?'block':'none';if(visible){button.style.left=x+'px';button.style.top=y+'px'}})}
+        function openParadigmMap(){const overlay=document.getElementById('paradigm-overlay');if(!overlay)return;overlay.classList.add('active');document.body.style.overflow='hidden';buildParadigmMap();initParadigm3D();requestAnimationFrame(()=>{resizeParadigm3D();selectParadigmBelief(activeParadigmNode);if(!p3dRunning){p3dRunning=true;p3dClock.start();p3dAnimate()}})}
+        function closeParadigmMap(){const overlay=document.getElementById('paradigm-overlay');if(overlay)overlay.classList.remove('active');document.body.style.overflow='';p3dRunning=false;cancelAnimationFrame(p3dRAF)}
         document.addEventListener('keydown',event=>{if(event.key==='Escape')closeParadigmMap()});
 
         function toggleSkillCard(card) {
@@ -782,12 +895,47 @@
                             </div>
                         </div>
 
+
+                        
                         <div class="paradigm-launch-wrap">
                             <button class="paradigm-launch" type="button" onclick="openParadigmMap()" aria-label="Open Personal Paradigm Map">
                                 <span class="paradigm-launch-main"><span class="paradigm-launch-icon"><i class="fa-solid fa-brain"></i></span><span><span class="paradigm-launch-title">Personal Paradigm Map</span><span class="paradigm-launch-sub">Explore the principles that drive me</span></span></span>
                                 <span class="paradigm-launch-cta"><span>Explore map</span><i class="fa-solid fa-arrow-right-long"></i></span>
                             </button>
                         </div>
+<section class="cv-showcase" aria-labelledby="cv-showcase-title">
+                            <div class="cv-showcase-head">
+                                <div>
+                                    <div class="cv-eyebrow"><i class="fa-solid fa-file-shield"></i> Documents / CV</div>
+                                    <h3 class="cv-showcase-title" id="cv-showcase-title">My Resume</h3>
+                                    <p class="cv-showcase-copy">Choose the format that suits you. Open each CV in a dedicated preview window or download the PDF directly.</p>
+                                </div>
+                            </div>
+                            <div class="cv-cards">
+                                <article class="cv-card">
+                                    <div class="cv-card-top">
+                                        <div class="cv-file-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                                        <div><h4>Standard CV</h4><div class="cv-format">PDF DOCUMENT · ENGLISH / SPANISH CONTENT</div></div>
+                                    </div>
+                                    <p>My concise professional CV, including technical training, work experience, skills and contact details.</p>
+                                    <div class="cv-actions">
+                                        <button class="cv-btn cv-btn-primary" type="button" onclick="openCVPreview('standard')"><i class="fa-solid fa-eye"></i> Open CV</button>
+                                        <a class="cv-btn cv-btn-secondary" href="Javi_Garcia_CV.pdf" download="Javi_Garcia_CV.pdf"><i class="fa-solid fa-download"></i> Download PDF</a>
+                                    </div>
+                                </article>
+                                <article class="cv-card">
+                                    <div class="cv-card-top">
+                                        <div class="cv-file-icon"><i class="fa-solid fa-file-lines"></i></div>
+                                        <div><h4>Europass CV</h4><div class="cv-format">EUROPASS · PDF DOCUMENT</div></div>
+                                    </div>
+                                    <p>The Europass version, presented in a standardized format for applications and opportunities across Europe.</p>
+                                    <div class="cv-actions">
+                                        <button class="cv-btn cv-btn-primary" type="button" onclick="openCVPreview('europass')"><i class="fa-solid fa-eye"></i> Open CV</button>
+                                        <a class="cv-btn cv-btn-secondary" href="Javi_Garcia_Europass.pdf" download="Javi_Garcia_Europass.pdf"><i class="fa-solid fa-download"></i> Download PDF</a>
+                                    </div>
+                                </article>
+                            </div>
+                        </section>
                     </div>`
             },
             {
@@ -1331,5 +1479,34 @@
             renderer.render(scene, camera);
         }
     </script>
+
+<script>
+(function(){
+ const cvFiles = {
+   standard: {title:'Standard CV', file:'Javi_Garcia_CV.pdf'},
+   europass: {title:'Europass CV', file:'Javi_Garcia_Europass.pdf'}
+ };
+ window.openCVPreview = function(type){
+   const item=cvFiles[type]; if(!item) return;
+   const modal=document.getElementById('cv-modal');
+   document.getElementById('cv-modal-title').innerHTML='<i class="fa-solid fa-file-pdf"></i> '+item.title;
+   document.getElementById('cv-frame').src=item.file+'#toolbar=1&navpanes=0&view=FitH';
+   const dl=document.getElementById('cv-modal-download');
+   dl.href=item.file; dl.download=item.file;
+   modal.classList.add('active'); document.body.style.overflow='hidden';
+ };
+ window.closeCVPreview = function(){
+   const modal=document.getElementById('cv-modal'); if(!modal)return;
+   modal.classList.remove('active'); document.getElementById('cv-frame').src='about:blank';
+   if(!document.getElementById('paradigm-overlay')?.classList.contains('active')) document.body.style.overflow='';
+ };
+ document.addEventListener('keydown',function(e){
+   if(e.key==='Escape'){
+     if(document.getElementById('cv-modal')?.classList.contains('active')) closeCVPreview();
+   }
+ });
+})();
+</script>
+
 </body>
 </html>
