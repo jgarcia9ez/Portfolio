@@ -115,7 +115,7 @@
         }
         .btn-close:hover { background: rgba(239, 68, 68, 0.2); border-color: rgba(239, 68, 68, 0.5); color: #ef4444; transform: rotate(90deg) scale(1.05); }
 
-        .drawer-body { padding: 40px; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 24px; }
+        .drawer-body { padding: 40px; overflow-y: auto; overflow-x: hidden; flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: 24px; overscroll-behavior: contain; }
         .drawer-body::-webkit-scrollbar { width: 6px; }
         .drawer-body::-webkit-scrollbar-thumb { background: rgba(255, 183, 77, 0.3); border-radius: 99px; }
 
@@ -462,6 +462,13 @@
 .paradigm-footer { border-top:1px solid rgba(148,163,184,.12)!important;color:#94a3b8!important; }
 @media(max-width:700px){.paradigm-head{padding:20px!important}.paradigm-window{height:97vh!important;border-radius:18px!important}.paradigm-launch{align-items:flex-start!important;flex-direction:column!important}.paradigm-launch-cta{align-self:stretch;justify-content:center}}
 /* Resume CV showcase */
+/* Certificates: independent document cards inside the scrollable drawer */
+.certificate-section { position:relative; width:100%; margin:8px 0 24px; overflow:visible; }
+.certificate-section .cv-showcase-head { margin-bottom:22px; }
+.certificate-cards { display:grid; grid-template-columns:minmax(0,1fr); gap:16px; width:100%; }
+.certificate-cards .cv-card { width:100%; min-width:0; min-height:unset; padding:22px; }
+.certificate-cards .cv-card p { margin-bottom:18px; }
+@media(max-width:650px){.certificate-cards{grid-template-columns:minmax(0,1fr)}.certificate-cards .cv-card{padding:18px}}
 .cv-showcase { position:relative; margin:34px 0 8px; padding:clamp(20px,3vw,34px); border-radius:26px; overflow:hidden; border:1px solid rgba(148,163,184,.18); background:radial-gradient(ellipse at 0% 0%,rgba(56,189,248,.12),transparent 48%),radial-gradient(ellipse at 100% 100%,rgba(167,139,250,.12),transparent 45%),linear-gradient(135deg,rgba(10,19,38,.98),rgba(17,24,45,.98)); box-shadow:0 20px 50px rgba(0,0,0,.2); }
 .cv-showcase:before { content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,#67e8f9,#a78bfa,transparent); }
 .cv-showcase-head { display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:24px; }
@@ -940,10 +947,187 @@
             {
                 id: 2, name: "Certifications", subtitle: "Floor 3 • Credentials & Diplomas", icon: "fa-certificate", accent: "#34d399",
                 content: `
-                    <div class="badge-grid">
-                        <div class="badge-card"><i class="fa-solid fa-award"></i><div><div style="font-weight: 700;">SMX Technician</div><div style="font-size: 0.75rem; color: var(--text-muted);">Microcomputer Systems & Networks</div></div></div>
-                        <div class="badge-card"><i class="fa-solid fa-network-wired"></i><div><div style="font-weight: 700;">CISCO Networking</div><div style="font-size: 0.75rem; color: var(--text-muted);">CCNA Networking Module</div></div></div>
-                    </div>`
+                    <section class="certificate-section" aria-labelledby="certificates-showcase-title">
+                        <div class="cv-showcase-head">
+                            <div>
+                                <div class="cv-eyebrow"><i class="fa-solid fa-award"></i> Documents / Credentials</div>
+                                <h3 class="cv-showcase-title" id="certificates-showcase-title">My Certificates &amp; Diplomas</h3>
+                                <p class="cv-showcase-copy">A collection of my certificates and learning achievements.</p>
+                            </div>
+                        </div>
+                        <div class="certificate-cards">
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-database"></i></div>
+                                <div><h4>Microsoft Access</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>Access certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_ACCESS.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_ACCESS.pdf" download="Certificat_ACCESS.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-file-excel"></i></div>
+                                <div><h4>Microsoft Excel</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>Excel certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_EXCEL.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_EXCEL.pdf" download="Certificat_EXCEL.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-robot"></i></div>
+                                <div><h4>Artificial Intelligence (AI)</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>AI certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_IA.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_IA.pdf" download="Certificat_IA.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-linux"></i></div>
+                                <div><h4>Linux</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>Linux certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_LINUX" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_LINUX" download="Certificat_LINUX">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div><h4>Microsoft Outlook</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>Outlook certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_OUTLOOK.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_OUTLOOK.pdf" download="Certificat_OUTLOOK.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-file-powerpoint"></i></div>
+                                <div><h4>Microsoft PowerPoint</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>PowerPoint certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_POWERPOINT.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_POWERPOINT.pdf" download="Certificat_POWERPOINT.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                                <div><h4>Computer Repair</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>Computer repair certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_REPARACIÓ.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_REPARACIÓ.pdf" download="Certificat_REPARACIÓ.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-leaf"></i></div>
+                                <div><h4>Sustainability</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>Sustainability certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_SUSTAINABILITY.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_SUSTAINABILITY.pdf" download="Certificat_SUSTAINABILITY.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-desktop"></i></div>
+                                <div><h4>Microsoft Windows</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>Windows certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_WINDOWS.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_WINDOWS.pdf" download="Certificat_WINDOWS.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-file-word"></i></div>
+                                <div><h4>Microsoft Word</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>Word certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_WORD.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_WORD.pdf" download="Certificat_WORD.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        <article class="cv-card">
+                            <div class="cv-card-top">
+                                <div class="cv-file-icon"><i class="fa-solid fa-network-wired"></i></div>
+                                <div><h4>Computer Networks</h4><div class="cv-format">CERTIFICATE · DOCUMENT</div></div>
+                            </div>
+                            <p>Computer networks certificate. Open or download the certificate document.</p>
+                            <div class="cv-actions">
+                                <a class="cv-btn cv-btn-primary" href="Certificat_XARXES.pdf" target="_blank" rel="noopener">
+                                    <i class="fa-solid fa-eye"></i> Open Certificate
+                                </a>
+                                <a class="cv-btn cv-btn-secondary" href="Certificat_XARXES.pdf" download="Certificat_XARXES.pdf">
+                                    <i class="fa-solid fa-download"></i> Download
+                                </a>
+                            </div>
+                        </article>
+                        </div>
+                        <div class="cv-actions" style="margin-top:22px;">
+                            <a class="cv-btn cv-btn-primary" href="PASTE_YOUR_GOOGLE_DRIVE_FOLDER_LINK_HERE" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-google-drive"></i> View All Certificates on Google Drive
+                            </a>
+                        </div>
+                    </section>`
             },
             {
                 id: 3, name: "Projects", subtitle: "Floor 4 • Systems & Servers Lab", icon: "fa-diagram-project", accent: "#a855f7",
